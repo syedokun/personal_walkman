@@ -1,0 +1,23 @@
+# =============================================================================
+# urls.txt - put the YouTube links you want to convert into MP3s here.
+# -----------------------------------------------------------------------------
+# Rules:
+#   * One URL per line.
+#   * Lines starting with '#' are comments and are ignored.
+#   * Blank lines are ignored.
+#   * Both single videos AND playlists/"YouTube albums" are supported.
+#       - A single video URL produces one MP3.
+#       - A playlist URL produces one MP3 per video in the playlist.
+#
+# Examples (delete the '#' to enable, or replace with your own):
+# -----------------------------------------------------------------------------
+
+# Single song:
+# https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+# Full album / playlist:
+# https://www.youtube.com/playlist?list=PLxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Add your URLs below this line:
+
+https://www.youtube.com/playlist?list=PLw2ZR0IvwO162tP9tLoE4FxmQSu2QPa73

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Walkman</title>
+  <link
+    rel="icon"
+    type="image/png"
+    href="{{ url_for('static', filename='walkman-mark.png') }}"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="{{ url_for('static', filename='walkman-mark.png') }}"
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="shell">
+    <header class="brand">
+      <p class="brand__mark">
+        <img
+          class="brand__icon"
+          src="{{ url_for('static', filename='walkman-mark.png') }}"
+          alt=""
+          width="56"
+          height="56"
+        />
+        <span>Walkman</span>
+      </p>
+    </header>
+
+    {% if not ffmpeg_ok %}
+    <div class="notice notice--warn" role="status">
+      ffmpeg isn’t on your PATH. Install it before downloading — audio conversion depends on it.
+    </div>
+    {% endif %}
+
+    <section class="stage" aria-label="Download">
+      <label class="field-label" for="urls">YouTube URLs</label>
+      <textarea
+        id="urls"
+        name="urls"
+        rows="5"
+        spellcheck="false"
+        placeholder="Paste video or playlist links — one per line"
+        autocomplete="off"
+      ></textarea>
+
+      <label class="field-label" for="output-dir">Save folder</label>
+      <div class="folder-row">
+        <input
+          id="output-dir"
+          type="text"
+          spellcheck="false"
+          autocomplete="off"
+          value="{{ output_dir }}"
+        />
+        <button type="button" id="browse" class="btn-secondary">Browse</button>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="run" class="btn-primary" {% if not ffmpeg_ok %}disabled{% endif %}>
+          <span class="btn-primary__label">Download</span>
+          <span class="btn-primary__spin" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="log-panel" aria-live="polite" aria-relevant="additions">
+      <div class="log-panel__head">
+        <span>Activity</span>
+        <span id="progress-label" class="log-panel__progress"></span>
+      </div>
+      <div id="log" class="log"></div>
+      <div id="summary" class="summary" hidden></div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

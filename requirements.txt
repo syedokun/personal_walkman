@@ -1,0 +1,20 @@
+# =============================================================================
+# Python dependencies for personal_walkman
+# -----------------------------------------------------------------------------
+# Install with:   pip install -r requirements.txt
+# =============================================================================
+
+# yt-dlp: downloads audio from YouTube (actively maintained fork of youtube-dl).
+yt-dlp>=2024.1.0
+
+# mutagen: reads/writes ID3 tags on MP3 files (title, artist, album, cover art).
+mutagen>=1.47.0
+
+# requests: simple HTTP client used to query the iTunes API and fetch album art.
+requests>=2.31.0
+
+# rich: clean terminal output with progress bars.
+rich>=13.7.0
+
+# flask: local web UI served by run.py / Personal Walkman launchers.
+flask>=3.0.0

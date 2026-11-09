@@ -1,0 +1,8 @@
+.venv/
+.pip_packages/
+__pycache__/
+*.py[cod]
+.DS_Store
+downloads/
+downloads_test_tmp/
+*.mp3
